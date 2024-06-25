@@ -14,9 +14,7 @@ node('Docker') {
         }
     }
     stage('Load file') {
-        dir("packages/hostap") {
-            load("Jenkinsfile")
-        }
+        load("packages/frr/Jenkinsfile")
     }
 }
 
