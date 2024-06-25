@@ -8,6 +8,11 @@
 setDescription()
 
 node('Docker') {
+    stage("Checkout") {
+        script {
+            checkout scm
+        }
+    }
     stage('Load file') {
         dir("packages/hostap") {
             load("Jenkinsfile")
