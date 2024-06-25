@@ -15,6 +15,7 @@ node('Docker') {
     }
     stage('Load file') {
         load("packages/frr/Jenkinsfile")
+        load("packages/hostapd/Jenkinsfile")
     }
 }
 
