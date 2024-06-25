@@ -7,4 +7,12 @@
 @Library('vyos-build@sagitta')_
 setDescription()
 
-load("packages/hostap/Jenkinsfile")
+node('Docker') {
+    stage('Load file') {
+        dir("packages/hostap") {
+            load("Jenkinsfile")
+        }
+    }
+}
+
+
