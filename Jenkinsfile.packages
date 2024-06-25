@@ -81,7 +81,7 @@ pipeline {
             }
         }
         failure {
-            archiveArtifacts artifacts: '**/packages/*.deb,
+            archiveArtifacts artifacts: '**/packages/*.deb',
                 allowEmptyArchive: true
         }
         cleanup {
