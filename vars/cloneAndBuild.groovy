@@ -72,15 +72,8 @@ def call(description, architecture, pkgList, buildCmd) {
             }
         }
     }
-    archiveArtifacts artifacts: "**/*.deb", fingerprint: true
-    try {
-        archiveArtifacts artifacts: "**/*.dsc", fingerprint: true
-        archiveArtifacts artifacts: "**/*.tar.*z", fingerprint: true
-    } catch (e) {
-        print "Archiving failed, ignoring - no source packages"
-        currentBuild.result = 'SUCCESS'
-    }
-    /* if (architecture == 'amd64') {
+
+    if (architecture == 'amd64' || architecture == 'arm64') {
         archiveArtifacts artifacts: "**/*.deb", fingerprint: true
         try {
             archiveArtifacts artifacts: "**/*.dsc", fingerprint: true
@@ -91,5 +84,5 @@ def call(description, architecture, pkgList, buildCmd) {
         }
     } else {
         archiveArtifacts artifacts: "**/*_${architecture}.deb", fingerprint: true
-    } */
+    }
 }
